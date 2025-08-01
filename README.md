@@ -1,93 +1,12 @@
-income-prediction
-This project predicts whether an individual earns more than $50K annually using demographic information from census data. I worked on data cleaning, feature engineering, model selection, evaluation, and tried to address issues like class imbalance and fairness.
+INCOME PREDICTION 
 
-Project Overview
-The goal of this project was to build and evaluate different machine learning models that can classify whether a person earns over $50K based on features like age, education, occupation, and hours worked per week. I explored multiple algorithms and preprocessing techniques to improve performance and interpretability.
+This project is about predicting whether someone makes over fifty thousand dollars a year using U.S. Census data. I used demographic features like age, education, occupation, marital status, and hours worked per week to train machine learning models that classify income level. The goal was to understand what types of models work best on this kind of data and how different preprocessing steps affect the results.
 
-Objectives and Goals
-Preprocess and clean the census dataset
+I started by cleaning the dataset, dropping rows with missing values, and applying one-hot encoding to the categorical features. I also normalized the continuous variables like age and hours per week so the models could learn better. After prepping the data, I trained and compared different classifiers including logistic regression, support vector machine, random forest, and XGBoost. I paid extra attention to class imbalance since most of the people in the dataset earn less than fifty thousand, and that could skew the results. To fix that, I used class weighting and looked at how the models performed on both classes separately.
 
-Try different classification models
+XGBoost ended up performing the best in terms of overall accuracy and F1 score. I evaluated all the models using metrics like precision, recall, F1, and ROC AUC so I could get a more complete picture of performance. I also visualized feature importance and confusion matrices to see where the models struggled. Some of the most important features ended up being education level, occupation, and hours worked per week.
 
-Evaluate and compare model performance
+I also did a basic fairness check by looking at model performance across gender groups. I noticed some imbalance and want to look deeper into that next. The entire pipeline, from preprocessing to model evaluation, is in a single Jupyter notebook and works with the census dataset. You just need to make sure the csv file is in the same folder and run the cells in order. The project uses common Python libraries like pandas, scikit learn, matplotlib, and XGBoost.
 
-Handle class imbalance
+This project helped me practice the full process of building a machine learning model from scratch, including data cleaning, model selection, evaluation, and interpretation. Everything in this repo was written and implemented by me.
 
-Look into potential model bias
-
-Dataset
-Source: censusData.csv
-
-Contains demographic and income-related features (e.g., age, workclass, education, marital status, occupation, sex, hours-per-week)
-
-Target variable: income (binary — <=50K or >50K)
-
-Methodology
-Data Cleaning:
-
-Removed rows with missing or unknown values
-
-Encoded categorical variables using one-hot encoding
-
-Normalized continuous features
-
-Modeling:
-
-Tried Logistic Regression, Random Forest, XGBoost, and SVM
-
-Used grid search for hyperparameter tuning
-
-Addressed class imbalance using class weights
-
-Evaluation:
-
-Compared models using accuracy, F1-score, precision, recall, and ROC AUC
-
-Analyzed performance specifically for the positive class (>50K)
-
-Results and Key Findings
-Best Model: XGBoost
-
-Accuracy: ~86%
-
-F1 Score (positive class): ~0.72
-
-XGBoost outperformed other models after tuning
-
-Class imbalance impacted recall, but weighting helped
-
-Model showed some bias across gender, which is a possible area for improvement
-
-Visualizations
-Confusion matrices for each model
-
-Feature importance plots for XGBoost
-
-ROC curves for performance comparison
-
-Next Steps
-Explore SHAP or LIME for interpretability
-
-Evaluate fairness across subgroups more thoroughly
-
-Try deep learning models or ensembling methods
-
-How to Run
-Clone the repo
-
-Open income_prediction.ipynb in Jupyter or Colab
-
-Make sure censusData.csv is in the same directory
-
-Run the notebook top to bottom to see results
-
-Individual Contributions
-I worked on every part of this project including:
-
-Exploring and preprocessing the dataset
-
-Training and tuning all models
-
-Running evaluation metrics and generating plots
-
-Writing the documentation and README
